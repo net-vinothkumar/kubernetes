@@ -5,7 +5,7 @@ metadata:
   labels:
     app: demo-app
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       app: demo-app
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: demo-app
-        image: aroussisvg/demo-k8s:0.2.0
+        image: interviewdot/demo-k8s:0.2.0
         ports:
         - containerPort: 8081
 ---
@@ -28,10 +28,10 @@ spec:
   selector:
     app: demo-app
   ports:
-    - protocol: TCP
-      port: 8081
-      nodePort: 30080
-  type: NodePort
+    - port: 8081
+      targetPort: 8081
+      nodePort: 30008
+  type: LoadBalancer
 ---
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget

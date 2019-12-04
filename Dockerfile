@@ -11,4 +11,4 @@ COPY ${DEPENDENCY}/BOOT-INF/classes ${appDir}
 
 EXPOSE 8081 5005
 
-ENTRYPOINT ["java","-cp","com/kubernetes/demo/*:lib/*:.","DemoApplication"]
+ENTRYPOINT ["java","-cp","com/kubernetes/demo/*:lib/*:.","com.kubernetes.demo.K8SDemoApplication"]

@@ -8,7 +8,7 @@
 		<version>2.1.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.aroussi</groupId>
+	<groupId>com.kubernetes</groupId>
 	<artifactId>spring-boot-k8S</artifactId>
 	<version>0.2.0</version>
 	<name>demo</name>
@@ -93,7 +93,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<repository>aroussisvg/demo-k8s</repository>
+					<repository>interviewdot/demo-k8s</repository>
 					<tag>${project.version}</tag>
 					<buildArgs>
 						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
