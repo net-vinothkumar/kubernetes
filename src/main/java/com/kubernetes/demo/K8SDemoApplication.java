@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-public class DemoApplication {
+public class K8SDemoApplication {
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(K8SDemoApplication.class, args);
     }
 }
 
@@ -32,7 +32,7 @@ class HelloResource {
 
     @GetMapping("/hello/{name}")
     public ResponseEntity<String> sayHello(@PathVariable String name) {
-        String greeting = String.format("Hey %s !", name);
+        String greeting = String.format("Hello %s - Thanks friend for your support... - Happy Learning!", name);
         log.info("TraceId :{} - Receive param {}", MDC.get("X-B3-TraceId"), name);
         return ResponseEntity.ok(greeting);
     }
