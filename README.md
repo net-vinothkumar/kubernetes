@@ -26,8 +26,10 @@ For further reference, please consider the following sections:
     > docker images
     > docker login
     > docker push <your_repo_name>/demo-k8s:0.1.0
-* Install minikube in your computer - https://kubernetes.io/docs/tasks/tools/install-minikube/
-* Create the deployment in kubernetes
+* Install minikube in your computer using these instructions - https://kubernetes.io/docs/tasks/tools/install-minikube/
+* Start the minikube in your local machine
+    > minikube start
+* Create the deployment in kubernetes - it helps to pull the spring boot demo app docker images and deploy in K8S.
     > kubectl create -f deployment.yml # your application will be deployed in kubernetes
 * View the container status
     > kubectl get pods
