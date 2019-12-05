@@ -25,7 +25,7 @@ For further reference, please consider the following sections:
 * Push the built docker image to your own docker repository
     > docker images
     > docker login
-    > docker push <your_repo_name>/demo-k8s:0.1.0
+    > docker push (your_repo_name)/demo-k8s:0.1.0
 * Install minikube in your computer using these instructions - https://kubernetes.io/docs/tasks/tools/install-minikube/
 * Start the minikube in your local machine
     > minikube start
@@ -37,7 +37,7 @@ For further reference, please consider the following sections:
     > kubectl get svc
     > minikube tunnel
 * Access your deployed spring boot application in kubernetes
-    > curl <external-ip>/hello/jackma
+    > curl (external-ip)/hello/jackma
 * To view the kubernetes setup
     > minikube dashboard
 
