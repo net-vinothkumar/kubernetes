@@ -3,7 +3,6 @@ package com.kubernetes.demo;
 import lombok.Builder;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.health.Health;
@@ -33,7 +32,6 @@ class HelloResource {
     @GetMapping("/hello/{name}")
     public ResponseEntity<String> sayHello(@PathVariable String name) {
         String greeting = String.format("Hello %s - Thanks friend for your support... - Happy Learning!", name);
-        log.info("TraceId :{} - Receive param {}", MDC.get("X-B3-TraceId"), name);
         return ResponseEntity.ok(greeting);
     }
 

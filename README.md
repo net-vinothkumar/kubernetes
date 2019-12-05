@@ -15,3 +15,27 @@ For further reference, please consider the following sections:
 * [Kubernetes](https://kubernetes.io/)
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
 * [Spring Boot](https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#production-ready)
+
+
+# Deploy the spring application to kubernetes - Steps :
+
+* Build the demo spring boot application - docker image
+    > mvn clean install
+    > docker build -t demo:0.1.0 .
+* Push the built docker image to your own docker repository
+    > docker images
+    > docker login
+    > docker push <your_repo_name>/demo-k8s:0.1.0
+* Install minikube in your computer - https://kubernetes.io/docs/tasks/tools/install-minikube/
+* Create the deployment in kubernetes
+    > kubectl create -f deployment.yml # your application will be deployed in kubernetes
+* View the container status
+    > kubectl get pods
+* To get the external Ip for accessing your application, please run
+    > kubectl get svc
+    > minikube tunnel
+* Access your deployed spring boot application in kubernetes
+    > curl <external-ip>/hello/jackma
+* To view the kubernetes setup
+    > minikube dashboard
+
