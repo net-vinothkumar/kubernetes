@@ -23,8 +23,8 @@ For further reference, please consider the following sections:
     > mvn clean install
     > docker build -t demo:0.1.0 .
 * Push the built docker image to your own docker repository
-    > docker images
-    > docker login
+    > docker images \
+    > docker login \
     > docker push (your_repo_name)/demo-k8s:0.1.0
 * Install minikube in your computer using these instructions - https://kubernetes.io/docs/tasks/tools/install-minikube/
 * Start the minikube in your local machine
