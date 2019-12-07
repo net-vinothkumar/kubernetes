@@ -20,7 +20,7 @@ For further reference, please consider the following sections:
 # Deploy the spring application to kubernetes - Steps :
 
 * Build the demo spring boot application - docker image
-    > mvn clean install
+    > mvn clean install \
     > docker build -t demo:0.1.0 .
 * Push the built docker image to your own docker repository
     > docker images \
