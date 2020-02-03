@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: kubernetes-job-example
+  labels:
+    jobgroup: jobexample
+spec:
+  completions: 8
+  parallelism: 4
+  template:
+    metadata:
+      name: kubejob
+      labels:
+        jobgroup: jobexample
+    spec:
+      containers:
+      - name: c
+        image: devopscube/kubernetes-job-demo:latest
+        args: ["3"]
+      restartPolicy: OnFailure
+
+      # kubectl get all
+      # kubectl apply -f parallerjob.yml && kubectl get pods --watch
+      # kubectl get jobs
+      # kubectl get po --watch
+      # kubectl logs kubernetes-job-example-vmnjr -f
+      # kubectl delete job kubernetes-job-example
+      # kubectl get po
+      # kubectl get all
+

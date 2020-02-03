@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis
+spec:
+  containers:
+  - image: redis
+    name: redis
+    volumeMounts:
+    - name: redis-storage
+      mountPath: /data/redis
+  volumes:
+  - name: redis-storage
+    emptyDir: {}
+
+
+# Commands
+
+# kubectl get all
+# kubectl apply -f emptydir.yml
+# kubectl get pod redis --watch
+# kubectl get all
+# kubectl exec -it redis -- /bin/bash
+# echo hello > test.txt
+# apt-get update && apt-get install procps
+# kill 1
+# kubectl get all
+# kubectl exec -it redis -- /bin/bash
+# /data/redis
+# ls

@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: kubernetes-job-example
+  labels:
+    jobgroup: jobexample
+spec:
+  template:
+    metadata:
+      name: kubejob
+      labels:
+        jobgroup: jobexample
+    spec:
+      containers:
+      - name: c
+        image: devopscube/kubernetes-job-demo:latest
+        args: ["20"]
+      restartPolicy: OnFailure
+
+      # kubectl get all
+      # kubectl apply -f job.yml
+      # kubectl get jobs
+      # kubectl get po
+      # kubectl logs kubernetes-job-example-vmnjr -f
+      # kubectl describe job kubernetes-job-example
+      # kubectl delete job kubernetes-job-example
+      # kubectl get po
+      # kubectl get all
+

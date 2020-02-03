@@ -1,0 +1,34 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: primes
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      completions: 8
+      parallelism: 4
+      template:
+        metadata:
+          name: primes
+        spec:
+          containers:
+          - name: primes
+            image: ubuntu
+            command: ["bash"]
+            args: ["-c",  "current=0; max=70; echo 1; echo 2; for((i=3;i<=max;)); do for((j=i-1;j>=2;)); do if [  `expr $i % $j` -ne 0 ] ; then current=1; else current=0; break; fi; j=`expr $j - 1`; done; if [ $current -eq 1 ] ; then echo $i; fi; i=`expr $i + 1`; done;"]
+          restartPolicy: Never
+
+
+          # kubectl create -f cron.yml
+          #cronjob "primes" created
+
+          # kubectl get cronjobs          
+          #NAME      SCHEDULE      SUSPEND   ACTIVE    LAST SCHEDULE   AGE
+          #primes    */1 * * * *   False     0         <none>
+
+          # kubectl get cronjobs
+          #NAME      SCHEDULE      SUSPEND   ACTIVE    LAST SCHEDULE   AGE
+          #primes    */1 * * * *   False     1         Tue, 28 Nov 2017 00:24:00 -0500
+
+          # kubectl get pods --show-all

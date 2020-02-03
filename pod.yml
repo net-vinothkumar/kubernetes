@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo-app
+  labels:
+    app: demo-app
+spec:
+  containers:
+  - name: demo-app
+    image: interviewdot/demo-k8s:0.5.0
+    ports:
+    - containerPort: 80

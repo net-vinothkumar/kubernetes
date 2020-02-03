@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-replicaset
+  labels:
+    app: myapp
+    type: backend-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: demo-app
+  template:
+    metadata:
+      name: demo-app
+      labels:
+        app: demo-app
+    spec:
+      containers:
+      - name: demo-app
+        image: interviewdot/demo-k8s:0.5.0
+        ports:
+        - containerPort: 80

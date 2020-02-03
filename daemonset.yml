@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    app: nginx
+    gpuexist: "true"
+  name: nginx-fast-storage
+spec:
+  selector:
+    matchLabels:
+      name: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+        gpuexist: "true"
+        name: nginx
+    spec:
+      nodeSelector:
+        gpuexist: "true"          # A B C D
+      containers:
+        - name: nginx
+          image: nginx:1.10.0

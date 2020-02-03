@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  labels:
+    app: nginx-app
+spec:
+
+  restartPolicy: Never
+
+  volumes:
+  - name: shared-volume
+    emptyDir: {}
+
+  containers:
+
+  - name: nginx-container
+    image: nginx
+    ports:
+      - name: http
+        containerPort: 80
+        protocol: TCP
+    volumeMounts:
+    - mountPath: "/usr/share/nginx/html"
+      name: shared-volume
+
+  - name: debian-container
+    image: debian
+    volumeMounts:
+    - name: shared-volume
+      mountPath: /pod-data
+    command: ["/bin/sh"]
+    args: ["-c", "echo Hello from the Debian container > /pod-data/index.html; sleep 1000"]
